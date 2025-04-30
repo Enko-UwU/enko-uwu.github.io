@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carniceria Emmanuel</title>
+    <style>
+        .seccion {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="login" class="seccion visible">
+        <div class="inicio">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="fondoform">
+                <div class="formulario">
+                    <h1>Inicio de Sesion</h1>
+                    <h2>Ingrese su Usuario y Contraseña</h2>
+                    <form id="loginForm">
+                        <div class="username">
+                            <input type="text" id="usuarioInput" required placeholder="Usuario">
+                        </div>
+                        <div class="username">
+                            <input type="password" id="contrasenaInput" required placeholder="Contraseña">
+                        </div>
+                        <button type="submit" class="boton-login">Iniciar Sesión</button>
+                    </form>
+                    <h3>Ten un gran dia</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout" class="seccion">
+        <div class="end">
+             <div class="banner-fijo">
+                 <img src="Imagenes/largoR.png" class="imagen-banner">
+             </div>
+             <div class="fondoform2">
+                 <div class="formulario2">
+                     <h1>Tu turno ha finalizado</h1>
+                     <h2>Buen Trabajo</h2>
+                     <div class="boton-panel">
+                         <button onclick="volverAlLogin()" class="boton-login">Continuar como otro empleado</button>
+                         <button class="boton-login">Finalizar el sistema</button>
+                     </div>
+                     <h3>Ten un gran dia</h3>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+    <div id="menuAdmin" class="seccion">
+        <div class="menuselec">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="fondoform2">
+                <div class="formulario2">
+                    <h1>Hola!</h1>
+                    <h2 id="mensajeAdmin"></h2>
+                    <div class="boton-panel">
+                        <button onclick="irAVentas()" class="boton-login">Panel de Ventas</button>
+                        <button onclick="irADueno()" class="boton-login">Panel de Dueño</button>
+                        <button onclick="irAFin()" class="boton-login">Cerrar Sesion</button>
+                    </div>
+                    <h3>Ten un gran dia</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menuUsuario" class="seccion">
+       <div class="menuselec">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="fondoform2">
+                <div class="formulario2">
+                    <h1>Hola!</h1>
+                    <h2 id="mensajeUsuario"></h2>
+                    <div class="boton-panel">
+                        <button onclick="irAVentas()" class="boton-login">Panel de Ventas</button>
+                        <button onclick="irAEmpleado()" class="boton-login">Panel de Empleado</button>
+                        <button onclick="irAFin()" class="boton-login">Cerrar Sesion</button>
+                    </div>
+                    <h3>Ten un gran dia</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panelVentas" class="seccion">
+        <div class="banner-fijo">
+            <img src="Imagenes/largoR.png" class="imagen-banner">
+        </div>
+        <div class="contenedor-panel">
+                <div class="panVentas">
+                    <h4>Descubre</h4>
+                    <div class="bot-ven">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 448 512"><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48C336 50.1 285.9 0 224 0S112 50.1 112 112l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                        <button onclick="irAVentas()" class="boton-venta">Productos</button>
+                    </div>
+                    <div class="bot-ven">    
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                        <button onclick="irABuscar()" class="boton-venta">Buscar</button>    
+                    </div>
+                    <div class="bot-ven">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                        <button onclick="irACarrito()" class="boton-venta">Mi Carrito</button>
+                    </div>
+                    <div class="bot-ven">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent"  viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                        <button onclick="volverMenu()" class="boton-venta">Volver a Menu</button>
+                    </div>
+                    <div class="bot-ven">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                        <button onclick="irAFin()" class="boton-venta">Cerrar Sesion</button>
+                    </div>
+                </div>
+                <div class="contenedor-productos">
+                    <div class="panProd">
+                        <h6>   Carne de Res</h6>
+                        <div class="prodCont">
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod1.webp">   
+                                <div class="producto-info">
+                                    <h5>Pecho de Res</h5>
+                                    <h5>$50</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Pecho de Res', 50)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod2.webp">   
+                                <div class="producto-info">
+                                    <h5>Carne Molida de Res</h5>
+                                    <h5>$45</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Carne Molida de Res', 45)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod3.png">   
+                                <div class="producto-info">
+                                    <h5>Costilla de Res</h5>
+                                    <h5>$40</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Costilla de Res', 40)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod4.png">   
+                                <div class="producto-info">
+                                    <h5>Filete de Res</h5>
+                                    <h5>$30</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Filete de Res', 30)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod1.webp">   
+                                <div class="producto-info">
+                                    <h5>Pecho de Res</h5>
+                                    <h5>$35</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Pecho de Res', 35)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod2.webp">   
+                                <div class="producto-info">
+                                    <h5>Carne Molida de Res</h5>
+                                    <h5>$45</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Carne Molida de Res', 45)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod3.png">   
+                                <div class="producto-info">
+                                    <h5>Costilla de Res</h5>
+                                    <h5>$40</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Costilla de Res', 40)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod4.png">   
+                                <div class="producto-info">
+                                    <h5>Filete de Res</h5>
+                                    <h5>$30</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Filete de Res', 30)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod1.webp">   
+                                <div class="producto-info">
+                                    <h5>Pecho de Res</h5>
+                                    <h5>$35</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Pecho de Res', 35)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod2.webp">   
+                                <div class="producto-info">
+                                    <h5>Carne Molida de Res</h5>
+                                    <h5>$45</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Carne Molida de Res', 45)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod3.png">   
+                                <div class="producto-info">
+                                    <h5>Costilla de Res</h5>
+                                    <h5>$40</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Costilla de Res', 40)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod4.png">   
+                                <div class="producto-info">
+                                    <h5>Filete de Res</h5>
+                                    <h5>$30</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Filete de Res', 30)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod1.webp">   
+                                <div class="producto-info">
+                                    <h5>Pecho de Res</h5>
+                                    <h5>$35</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Pecho de Res', 35)">Agregar al Carrito</button>
+                            </div>
+                            <div class="producto">
+                                <img class="prodImg" src="Imagenes/prod2.webp">   
+                                <div class="producto-info">
+                                    <h5>Carne Molida de Res</h5>
+                                    <h5>$45</h5>
+                                </div>
+                                <button class="addCart" onclick="agregarAlCarrito('Carne Molida de Res', 45)">Agregar al Carrito</button>
+                            </div>
+                        </div>
+                </div>
+                <div class="panProd">
+                    <h6>   Carne de Puerco</h6>
+                    <div class="prodCont">
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod5.png">   
+                            <div class="producto-info">
+                                <h5>Lomo de Puerco</h5>
+                                <h5>$45</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Lomo de Puerco', 45)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod6.png">   
+                            <div class="producto-info">
+                                <h5>Bistec de Puerco</h5>
+                                <h5>$40</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Bistec de Puerco', 40)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod7.png">   
+                            <div class="producto-info">
+                                <h5>Pierna de Puerco</h5>
+                                <h5>$50</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Pierna de Puerco', 50)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod8.png">   
+                            <div class="producto-info">
+                                <h5>Chuleta de Puerco</h5>
+                                <h5>$55</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Chuleta de Puerco', 55)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod5.png">   
+                            <div class="producto-info">
+                                <h5>Lomo de Puerco</h5>
+                                <h5>$45</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Lomo de Puerco', 45)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod6.png">   
+                            <div class="producto-info">
+                                <h5>Bistec de Puerco</h5>
+                                <h5>$40</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Bistec de Puerco', 40)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod7.png">   
+                            <div class="producto-info">
+                                <h5>Pierna de Puerco</h5>
+                                <h5>$50</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Pierna de Puerco', 50)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod8.png">   
+                            <div class="producto-info">
+                                <h5>Chuleta de Puerco</h5>
+                                <h5>$55</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Chuleta de Puerco', 55)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod5.png">   
+                            <div class="producto-info">
+                                <h5>Lomo de Puerco</h5>
+                                <h5>$45</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Lomo de Puerco', 45)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod6.png">   
+                            <div class="producto-info">
+                                <h5>Bistec de Puerco</h5>
+                                <h5>$40</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Bistec de Puerco', 40)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod7.png">   
+                            <div class="producto-info">
+                                <h5>Pierna de Puerco</h5>
+                                <h5>$50</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Pierna de Puerco', 50)">Agregar al Carrito</button>
+                        </div>
+                        <div class="producto">
+                            <img class="prodImg" src="Imagenes/prod8.png">   
+                            <div class="producto-info">
+                                <h5>Chuleta de Puerco</h5>
+                                <h5>$55</h5>
+                            </div>
+                            <button class="addCart" onclick="agregarAlCarrito('Chuleta de Puerco', 55)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panelDueno" class="seccion">
+        <div class="menuselec">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="fondoform2">
+                <div class="formulario2">
+                    <h1>Hola!</h1>
+                    <h2 id="mensajeDueno"></h2>
+                    <div class="boton-panel">
+                        <button onclick="irAVentas()" class="boton-login">Panel de Ventas</button>
+                        <button onclick="irADueno()" class="boton-login">Panel de Dueño</button>
+                    </div>
+                    <h3>Ten un gran dia</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panelEmpleado" class="seccion">
+        <div class="menuselec">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="fondoform2">
+                <div class="formulario2">
+                    <h1>Hola!</h1>
+                    <h2 id="mensajeEmpleado"></h2>
+                    <div class="boton-panel">
+                        <button onclick="irAVentasE()" class="boton-login">Panel de Ventas</button>
+                        <button onclick="irAEmpleado()" class="boton-login">Panel de Dueño</button>
+                    </div>
+                    <h3>Ten un gran dia</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="panelCarrito" class="seccion">
+        <div class="carrito">
+            <div class="banner-fijo">
+                <img src="Imagenes/largoR.png" class="imagen-banner">
+            </div>
+            <div class="contenedor-panel1">
+                <div class="contenedorVentas">
+                    <div class="panVentas">
+                        <h4>Descubre</h4>
+                        <div class="bot-ven">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 448 512"><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48C336 50.1 285.9 0 224 0S112 50.1 112 112l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                            <button onclick="irAVentas()" class="boton-venta">Productos</button>
+                        </div>
+                        <div class="bot-ven">    
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                            <button onclick="irABuscar()" class="boton-venta">Buscar</button>    
+                        </div>
+                        <div class="bot-ven">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                            <button onclick="irACarrito()" class="boton-venta">Mi Carrito</button>
+                        </div>
+                        <div class="bot-ven">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent"  viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                            <button onclick="volverMenu()" class="boton-venta">Volver a Menu</button>
+                        </div>
+                        <div class="bot-ven">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                            <button onclick="irAFin()" class="boton-venta">Cerrar Sesion</button>
+                        </div>
+                    </div>
+                    <div class="carritoMenu">
+                            <div id="carritoContenedor" class="tablaCarrito">
+                            <div class="producto">
+                                <div class="columna">Producto</div>
+                                <div class="columna">Precio</div>
+                                <div class="columna">Cantidad</div>
+                                <div class="columna">Total</div>
+                                <div class="columna">Eliminar</div>
+                            </div>
+                        </div>
+                        <div class="total-y-botones">
+                            <div id="totalCarrito">Total de la Compra: $0</div>
+                            <div class="botonesCarrito">
+                                <button class="boton" onclick="vaciarCarrito()">Confirmar Compra</button>
+                                <button class="boton">Generar Ticket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menuFiltro" class="seccion">
+        <div class="banner-fijo">
+            <img src="Imagenes/largoR.png" class="imagen-banner">
+        </div>
+        <div class="contenedor-panel2">
+            <div class="panVentas">
+                <h4>Descubre</h4>
+                <div class="bot-ven">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 448 512"><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48C336 50.1 285.9 0 224 0S112 50.1 112 112l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                    <button onclick="irAVentas()" class="boton-venta">Productos</button>
+                </div>
+                <div class="bot-ven">    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    <button onclick="irABuscar()" class="boton-venta">Buscar</button>    
+                </div>
+                <div class="bot-ven">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                    <button onclick="irACarrito()" class="boton-venta">Mi Carrito</button>
+                </div>
+                <div class="bot-ven">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent"  viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+                    <button onclick="volverMenu()" class="boton-venta">Volver a Menu</button>
+                </div>
+                <div class="bot-ven">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="bot-vent" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                    <button onclick="irAFin()" class="boton-venta">Cerrar Sesion</button>
+                </div>
+            </div>
+            <div class="columna-derecha">
+                <div class="filters">
+                    <input type="text" id="searchName" placeholder="Nombre del Producto" onkeyup="filterProducts()">
+                    <div class="filter-buttons">
+                        <button class="filter-button" onclick="filterByType('')">Todos</button>
+                        <button class="filter-button" onclick="filterByType('res')">Res</button>
+                        <button class="filter-button" onclick="filterByType('puerco')">Puerco</button>
+                        <button class="filter-button" onclick="clearFilters()">Limpiar Filtros</button>
+                    </div>
+                </div>
+                <div class="products-list" id="productsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+    
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const usuario = document.getElementById('usuarioInput').value;
+            const contrasena = document.getElementById('contrasenaInput').value;
+    
+            localStorage.setItem('usuario', usuario);
+    
+            document.getElementById('login').classList.remove('visible');
+    
+            if (contrasena === '1') {
+                localStorage.setItem('tipoUsuario', 'admin');
+                document.getElementById('mensajeAdmin').textContent = usuario;
+                document.getElementById('menuAdmin').classList.add('visible');
+            }
+            else if (contrasena === '2') {
+                localStorage.setItem('tipoUsuario', 'empleado');
+                document.getElementById('mensajeUsuario').textContent = usuario;
+                document.getElementById('menuUsuario').classList.add('visible');
+            } 
+            else {
+                alert('Contraseña incorrecta');
+                document.getElementById('login').classList.add('visible');
+            }
+        });
+    
+        function volverAlLogin() {
+            ocultarTodasLasSecciones();
+            document.getElementById('login').classList.add('visible');
+            document.getElementById('usuarioInput').value = '';
+            document.getElementById('contrasenaInput').value = '';
+            localStorage.removeItem('tipoUsuario');
+            localStorage.removeItem('usuario');
+        }
+    
+        function volverMenu() {
+            ocultarTodasLasSecciones();
+    
+            const tipoUsuario = localStorage.getItem('tipoUsuario');
+            const usuario = localStorage.getItem('usuario');
+    
+            if (tipoUsuario === 'admin') {
+                document.getElementById('mensajeAdmin').textContent = usuario;
+                document.getElementById('menuAdmin').classList.add('visible');
+            }
+            else if (tipoUsuario === 'empleado') {
+                document.getElementById('mensajeUsuario').textContent = usuario;
+                document.getElementById('menuUsuario').classList.add('visible');
+            }
+            else {
+                document.getElementById('login').classList.add('visible');
+            }
+        }
+    
+        function irAVentas() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('panelVentas').classList.add('visible');
+            document.getElementById('mensajeVentas').textContent = usuario;
+        }
+    
+        function irADueno() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('panelDueno').classList.add('visible');
+            document.getElementById('mensajeDueno').textContent = usuario;
+        }
+
+        function irAFin() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('logout').classList.add('visible');
+        }
+    
+        function irAEmpleado() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('panelEmpleado').classList.add('visible');
+            document.getElementById('mensajeEmpleado').textContent = usuario;
+        }
+    
+        function irAProductos() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('panelProducto').classList.add('visible');
+            document.getElementById('mensajeProducto').textContent = usuario;
+        }
+    
+        function irABuscar() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('menuFiltro').classList.add('visible');
+            document.getElementById('mensajeBuscar').textContent = usuario;
+        }
+    
+        function ocultarTodasLasSecciones() {
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(sec => sec.classList.remove('visible'));
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let productoExistente = carrito.find(p => p.nombre === nombre);
+            
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                carrito.push({ nombre, precio, cantidad: 1 });
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito(); 
+        }
+
+        function mostrarCarrito() {
+            const contenedor = document.getElementById('carritoContenedor');
+            contenedor.innerHTML = '';
+
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let total = 0;
+
+            carrito.forEach((producto, index) => {
+                total += producto.precio * producto.cantidad;
+
+                const div = document.createElement('div');
+                div.classList.add('producto');
+                div.innerHTML = `
+                    <div class="columna">${producto.nombre}</div>
+                    <div class="columna">$${producto.precio}</div>
+                    <div class="columna">
+                        <button onclick="modificarCantidad(${index}, -1)">-</button>
+                        <input type="number" value="${producto.cantidad}" min="1" readonly>
+                        <button onclick="modificarCantidad(${index}, 1)">+</button>
+                    </div>
+                    <div class="columna">$${(producto.precio * producto.cantidad).toFixed(2)}</div>
+                    <div class="columna"><button onclick="eliminarDelCarrito(${index})">Eliminar</button></div>
+                `;
+                contenedor.appendChild(div);
+            });
+
+            document.getElementById('totalCarrito').textContent = `Total de la Compra: $${total.toFixed(2)}`;
+        }
+
+        function modificarCantidad(index, cambio) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let producto = carrito[index];
+
+            if (producto) {
+                producto.cantidad += cambio;
+                if (producto.cantidad < 1) producto.cantidad = 1;
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito(); 
+        }
+
+        function eliminarDelCarrito(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        function vaciarCarrito() {
+            localStorage.removeItem('carrito');
+            mostrarCarrito(); 
+        }
+
+        function confirmarCompra() {
+            alert('Compra confirmada');
+            vaciarCarrito();
+        }
+
+        function generarTicket() {
+            alert('Generando Ticket...');
+        }
+
+        function irACarrito() {
+            ocultarTodasLasSecciones();
+            const usuario = localStorage.getItem('usuario');
+            document.getElementById('panelCarrito').classList.add('visible');
+            mostrarCarrito();
+        }
+        const products = [
+            { name: 'Pecho de Res', type: 'res', price: 50 },
+            { name: 'Carne Molida de Res', type: 'res', price: 45 },
+            { name: 'Costilla de Res', type: 'res', price: 40 },
+            { name: 'Filete de Res', type: 'res', price: 30 },
+            { name: 'Lomo de Puerco', type: 'puerco', price: 45 },
+            { name: 'Bistec de Puerco', type: 'puerco', price: 40 },
+            { name: 'Pierna de Puerco', type: 'puerco', price: 50 },
+            { name: 'Chuleta de Puerco', type: 'puerco', price: 55 }
+        ];
+
+        let currentTypeFilter = ''; 
+
+        function displayProducts(filteredProducts) {
+            const productsList = document.getElementById('productsList');
+            productsList.innerHTML = '';
+
+            filteredProducts.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product-card');
+
+                const imagePath = `Imagenes/${product.name.replace(/\s+/g, '_').toLowerCase()}.png`;
+
+                productElement.innerHTML = `
+                    <img src="${imagePath}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Tipo: ${product.type}</p>
+                    <p>Precio: $${product.price}</p>
+                    <button onclick="agregarAlCarrito('${product.name}', ${product.price})">Agregar al carrito</button>
+                `;
+                productsList.appendChild(productElement);
+            });
+        }
+
+
+        function filterProducts() {
+            const searchName = document.getElementById('searchName').value.toLowerCase();
+
+            const filteredProducts = products.filter(product => {
+                const matchesName = product.name.toLowerCase().includes(searchName);
+                const matchesType = currentTypeFilter ? product.type === currentTypeFilter : true;
+                return matchesName && matchesType;
+            });
+
+            displayProducts(filteredProducts);
+        }
+
+        function filterByType(type) {
+            currentTypeFilter = type;  
+            filterProducts();  
+        }
+
+        function clearFilters() {
+            document.getElementById('searchName').value = '';  
+            currentTypeFilter = '';
+            filterProducts();  
+        }
+
+        window.onload = function() {
+            displayProducts(products);
+        };
+
+    </script>    
+</body>
+</html>
